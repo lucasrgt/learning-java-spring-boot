@@ -1,9 +1,15 @@
 package com.lucas.learnspringframework.entities;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
@@ -16,6 +22,9 @@ public class User implements Serializable {
         this.email = email;
         this.phone = phone;
         this.password = password;
+    }
+
+    public User() {
     }
 
     public Long getId() {
